@@ -1,13 +1,16 @@
-const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-const mode="development"
+const path = require("path");
+const { ProgressPlugin } = require("webpack");
+
+const mode = "development"
 // "production"
 
-const buildPaths={
-  entry:path.resolve(__dirname, "src", "index.js"),
-  build:path.resolve(__dirname, "build"),
-  // html:path.resolve(__dirname, "src", "index.js"),
-  // favicon:path.resolve(__dirname, "src", "index.js")
+const buildPaths = {
+  entry: path.resolve(__dirname, "src", "index.js"),
+  build: path.resolve(__dirname, "build"),
+  html: path.resolve(__dirname, "public", "index.html"),
+  favicon: path.resolve(__dirname, "public", "favicon.ico")
 }
 
 module.exports = {
@@ -16,6 +19,11 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "build"),
     filename: "[name].[contenthash].js",
-    clean:true
+    clean: true
   },
+  plugins: [
+    new HtmlWebpackPlugin({ template: buildPaths.html, favicon: buildPaths.favicon },
+      new ProgressPlugin()
+    )
+  ],
 };
