@@ -1,5 +1,5 @@
 
 export function someFn(num: number): string {
-    console.log("123");
+    console.log(`${num}`);
     return `Number ${num}`
 }
