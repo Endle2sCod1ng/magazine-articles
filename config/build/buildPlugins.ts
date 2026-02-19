@@ -1,11 +1,11 @@
-import HtmlWebpackPlugin from "html-webpack-plugin";
+import HTMLWebpackPlugin from "html-webpack-plugin";
 import { ProgressPlugin, WebpackPluginInstance } from "webpack";
 import { BuildPaths } from "./types";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
 
 export function buildPlugins(buildPaths: BuildPaths): WebpackPluginInstance[] {
-  return [new HtmlWebpackPlugin({ template: buildPaths.html, favicon: buildPaths.favicon },
+  return [new HTMLWebpackPlugin({ template: buildPaths.html, favicon: buildPaths.favicon },
   ),
   new ProgressPlugin(),
   new MiniCssExtractPlugin(
