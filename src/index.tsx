@@ -1,6 +1,9 @@
 import { render } from "react-dom";
-import { Counter } from "./widgets/Counter/Counter";
+import { App } from "./app/App";
 
-render(<div>asdsafadsfd
-  <Counter />
-</div>, document.getElementById("root"))
+import './app/index.scss'
+
+
+render(<div>
+  <App />
+</div>, document.getElementById("root") as HTMLElement)
